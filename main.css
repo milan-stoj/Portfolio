@@ -490,8 +490,6 @@ button[type="submit"]{
     animation: pulse 2s infinite;
 }
 
-button
-
 button[type="submit"]:hover{
     color: #008080;
     background-color: #F1502F;
