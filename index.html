@@ -195,7 +195,7 @@
     <section class="experience" id="experience">
         <div class="container">
             <div class="section-heading">
-                <h1>Work Experience</h1>
+                <h1>Experience</h1>
                 <h6>Education and Work</h6>
             </div>
             <div class="timeline" data-aos = "fade-down" data-aos-delay="1000">
@@ -239,20 +239,22 @@
                 <h1>Contact</h1>
                 <h6>Work with me.</h6>
             </div>
-            <form action="" data-aos = "fade-up" data-aos-delay="1500">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name..." required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
-                <label for="skills">About:</label>
-                <select name="skills" id ="skills">
-                    <option value="">Mechanical Engineering</option>
-                    <option value="">Quality/Mfg. Engineering</option>
-                    <option value="">Software Development</option>
-                </select>
-                <label for="subject">Subject:</label>
-                <textarea type="subject" id="subject" cols="10" rows="10" required></textarea>
-                <input type = "submit" value = "Submit">
+            <form
+                action="https://formspree.io/mlepvapv"
+                method="POST"
+                >
+                <label>
+                    Your email:
+                    <input type="text" name="_replyto">
+                </label>
+                <label>
+                    Your message:
+                    <textarea name="message"></textarea>
+                </label>
+
+                <!-- other form fields here -->
+
+                <button type="submit"><b>Send</b></button>
             </form>
         </div>
     </section>
@@ -267,5 +269,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="main.js"></script>
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
 </body>
 </html>
