@@ -1,0 +1,629 @@
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto Thin';
+    src: url('fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+/* --------- START GLOBAL STYLES --------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    color:  #eee;
+    font-family: 'Roboto Thin';
+    -webkit-font-smoothing: antialiased;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background: url("images/sitebg.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+a{
+    text-decoration: none;
+    color: #eee;
+}
+
+section{
+    padding: 6rem 0;
+}
+
+p{
+    font-size: 2rem;
+    font-family: 'Roboto Thin';
+}
+
+img{
+    width: 100%;
+}
+/* xxxxxxxxxx END GLOBAL STYLES xxxxxxxxxx */
+
+/* oooooooooo START REUSABLE STYLES oooooooooo */
+.container{
+    width: 90%;
+    max-width: 120rem;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.section-heading{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10rem;
+}
+
+.section-heading h1{
+    font-size: 6rem;
+    font-family: 'Roboto Bold';
+    color: rgba(255,255,255, 0.3);
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.section-heading h1::before,
+.section-heading h1::after{
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.section-heading h1::before{
+    width: 12rem;
+    height: 3px;
+    border-radius: 1rem;
+}
+
+.section-heading h1::after{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    bottom: -1.1rem;
+}
+
+.section-heading h6{
+    font-size: 3rem;
+    font-weight: 10;
+}
+
+.has-margin-right{
+    margin-right: 5rem;
+}
+
+/* oooooooooo START HEADER STYLES oooooooooo */
+header{
+    width: 100%;
+    height: 100vh;
+}
+
+.top-nav{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: -100vh;
+    z-index: 50;
+    background-color: #16162d;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    transition: all 650ms cubic-bezier(1,0,0,1);
+}
+
+.nav-list{
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li{
+    margin: 0 2rem;
+}
+
+.nav-link{
+    font-size: 4rem;
+    font-family: 'Roboto Thin';
+}
+
+.nav-link:hover,
+.nav-link:focus{
+    background: linear-gradient(to top, #ffffff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-nav.open{
+    top: 0;
+    border-radius: initial;
+}
+
+.menu-toggler{
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    width: 5rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 650ms ease-out;
+}
+
+.menu-toggler.open{
+    transform: rotate(-45deg);
+}
+
+.bar{
+    background: linear-gradient(to right, #ffffff, #00ffff);
+    width: 100%;
+    height: 4px;
+    border-radius: 0.8rem;
+}
+
+.bar.half{
+    width: 50%;
+}
+
+.bar.start{
+    transform-origin: right;
+    transition: transform 650ms cubic-bezier(0.5, -0.81, 0.57, 0.57);
+}
+
+.open .bar.start{
+    transform: rotate(-270deg) translateX(0.8rem);
+}
+
+.bar.end{
+    align-self: flex-end;
+    transform-origin: left;
+    transition: transform 650ms cubic-bezier(0.5, -0.81, 0.57, 0.57);
+}
+
+.open .bar.end{
+    transform: rotate(-270deg) translateX(-.8rem);
+}
+
+
+.landing-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.landing-text h1{
+    text-align: center;
+    font-size: 10rem;
+    font-family: 'Roboto Bold';
+    background: linear-gradient(to top, #ffffff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.landing-text p{
+    font-family: 'Roboto Thin';
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+/* ---------- END HEADER STYLES ---------- */
+
+
+/* --------- START ABOUT STYLES --------- */
+.about .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-heading{
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0;
+    margin-bottom: 6rem;
+}
+
+.about-heading h1{
+    font-family: 'Roboto Bold';
+    font-size: 11rem;
+    opacity: .3;
+}
+
+.about-heading h6{
+    font-size: 3rem;
+}
+
+
+.profile-img{
+    flex: 1;
+    margin-right: 5rem;
+}
+
+.about-details{
+    flex: 1;
+    text-align: justify;
+    text-justify: auto;
+}
+
+.social-media{
+    margin-top: 5rem;
+}
+
+.social-media i{
+   font-size: 5rem;
+   transition: color 650ms;
+}
+
+.fa-linkedin:hover{
+    color: #0072b1;
+}
+
+.fa-github-square:hover{
+    color: #F1502F;
+}
+
+.fa-facebook-square:hover{
+    color: #3b5998;
+}
+/* ---------- END ABOUT STYLES ---------- */
+
+
+/* --------- START SKILLS STYLES --------- */
+.my-skills{
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr /*1-fraction of local space*/));
+    align-items: start;
+    grid-gap: 2.5rem;
+    text-align: center;
+}
+
+.skill{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.skill h1{
+    text-transform: uppercase;
+    font-family: 'Roboto Bold';
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin: 2rem -2px 2rem 0;
+}
+
+.icon-container{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10%;
+    border: 3px solid  #00ffff;
+    background-color:  #ffffff;
+    margin-bottom: 2rem;
+    display: flex;
+    transform: rotate(45deg);
+}
+
+.icon-container i{
+    color: #00ffff;
+    font-size: 5rem;
+    margin: auto;
+    transform: rotate(-45deg);
+}
+/* ---------- END SKILLS STYLES ---------- */
+
+/* ---------- START PORTFOLIO ITEMS ---------- */
+.portfolio-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.portfolio-item:last-child{
+    margin-bottom: 0;
+}
+
+.portfolio-img{
+
+    flex: 1;
+}
+
+.portfolio-description{
+    flex: 1;
+    text-align: justify;
+}
+
+.portfolio-description h6{
+    text-transform: uppercase;
+    font-family: 'Roboto Bold';
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.portfolio-description h1{
+    text-transform: uppercase;
+    
+    font-family: 'Roboto Bold';
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.portfolio-description .cta{
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #00ffff;
+    transition: color 650ms;
+}
+
+.portfolio-description .cta:hover{
+    color: #008080;
+}
+
+
+/* ---------- Start Timeline --------------*/
+.timeline ul{
+    border-left: 4px solid #00ffff;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,0.1);
+    margin: 0 auto;
+    position: relative;
+    padding: 3rem;
+    list-style: none;
+    text-align: left;
+    width: 70%;
+}
+
+.timeline h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    opacity: .3;
+}
+
+.timeline .date{
+    border-bottom: 1px solid rgba(0,255,255,1);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.timeline .date:last-of-type{
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+.timeline .date::before,
+.timeline .date::after{
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline .date::before{
+    content: attr(data-date);
+    left: -20rem;
+    text-align: right;
+    min-width: 12rem;
+    font-size: 2rem;
+}
+
+.timeline .date::after{
+    content: '';
+    box-shadow: 0 0 0 4px #00ffff;
+    border-radius: 100%;
+    left: -5.7rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #ffffff;
+}
+
+/* Begin Contact Form */
+form{
+    width: 70%;
+    margin: 0 auto;
+}
+
+form label{
+    font-size: 2rem;
+}
+
+input,
+select,
+textarea{
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 5px;
+    border: none;
+    outline-color: #00ffff;
+}
+
+input[type="submit"]{
+    width: initial;
+    background-color: #00ffff;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 650ms;
+    margin-bottom: 5rem;
+}
+
+input[type="submit"]:hover{
+    color: #008080;
+    background-color: #F1502F;
+}
+
+
+/* copyright settings */
+.copyright{
+    width: 100%;
+    text-align: center;
+    background-color: #000000;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.up{
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: #ffffff;
+    top: 1rem;
+    right: 3rem;
+    border-radius: 100%;
+    display: flex;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+.up i{
+    color: #00ffff;
+    font-size: 3rem;
+    margin: auto;
+}
+
+.copyright p{
+    font-size: 2rrem;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow: 0 0 0 0 rgba(87, 253, 253, 0.99);
+    }
+    70%{
+        box-shadow: 0 0 0 2rem rgba(87, 253, 253, 0);
+    }
+    100%{
+        box-shadow: 0 0 0 0 rgba(87, 253, 253, 0.0);
+    }
+}
+
+
+/* media queries */
+
+@media screen and  (max-width: 768px) {
+    .landing-text h1{
+        font-size: 8rem;
+
+    }
+
+    .landing-text p{
+        font-size: 2rem;
+    }
+
+    .nav-list{
+        flex-direction: column;
+    }
+
+    li{
+        margin: 2rem 0rem;
+    }
+
+    .nav-link{
+        font-size: 4rem;
+    }
+
+    .about .container{
+        flex-direction: column;
+    }
+
+    .profile-img{
+        margin: 0 0 7rem 0;
+    }
+
+    .portfolio-item{
+        flex-direction: column;
+    }
+
+    .portfolio-img{
+        margin: 0 0 2rem 0;
+        order: 1;
+    }
+
+    .portfolio-description{
+        margin: 0;
+        order: 2;
+    }
+
+    .about-heading h1{
+        font-size: 8rem;
+    }
+
+    .about-heading h6{
+        font-size: 3rem;
+    }
+
+    .section-heading h1{
+        font-size: 5rem;
+    }
+
+    .about-details .nav-list{
+        flex-direction: initial;
+    }
+
+    .about-details li{
+        margin: 0 2rem;
+    }
+
+    .icon-container{
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .icon-container i{
+        font-size: 4rem;
+    }
+
+    .timeline ul{
+        margin: 0 0 0 auto;
+    }
+
+    .timeline .date::before{
+        left: -18rem;
+    }
+
+    .timeline .date::after{
+        left: -3.7rem
+    }
+}
