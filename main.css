@@ -309,14 +309,17 @@ li{
 
 
 /* --------- START SKILLS STYLES --------- */
+
 .my-skills{
-    margin-top: 10rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr /*1-fraction of local space*/));
     align-items: start;
     grid-gap: 2.5rem;
     text-align: center;
 }
+
+
 
 .skill{
     display: flex;
@@ -560,6 +563,13 @@ button:hover{
         height: 100vh;
     }
     
+    .menu-toggler{
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 5rem;
+        height: 4rem;
+    }
 
     .nav-list{
         flex-direction: column;
@@ -570,7 +580,7 @@ button:hover{
     }
 
     .nav-link{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .about .container{
@@ -655,7 +665,7 @@ button:hover{
     }
 
     .nav-link{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .about .container{
