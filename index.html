@@ -3,6 +3,9 @@
     <head>
         <title>Milan Stojanovic</title>
         <meta charset = "UTF-8">
+        <meta name="description" content="Portfolio">
+        <meta name="keywords" content="engineer, software developer, freelancer, milan stojanovic">
+        <meta name="author" content="Milan Stojanovic">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -42,7 +45,7 @@
     <section class="landing-text" id="landing-text">
         <div class="container" >
             <h1 data-aos = "fade-in" data-aos-delay="300">Milan Stojanovic</h1>
-            <p data-aos = "fade-in" data-aos-delay="600">Mechanical Engineer | Software Developer</p>
+            <p data-aos = "fade-in" data-aos-delay="600">Bachelor of Science · Engineering</p>
         </div>
     </section>
 
@@ -158,7 +161,7 @@
                         by 25% through championing of a Kaizen event. Estimated annual 
                         manufacturing wait-time and QA inspection-time savings of approx. 700 hrs.
                     </p>
-                    <!--- <a href="#" class="cta">View Details</a> --->
+                    <!--- <a href="#" class="cta">View Details</a> ---> <!---Not needed until I can hyperlink to details-->
                 </div>
             </div>
             <div class="portfolio-item ">
@@ -169,7 +172,7 @@
                         Team project to design and build an Arduino-based robot to roam, target, 
                         and extinguish detected flames. 
                     </p>
-                    <a href="#" class="cta">View Details</a>
+                    <!--- <a href="#" class="cta">View Details</a> ---> <!---Not needed until I can hyperlink to details-->
                 </div>
                 <div class="portfolio-img" data-aos = "fade-left" data-aos-delay="1200">
                     <img src="images/robotDiagram.jpeg" alt="">
@@ -204,7 +207,7 @@
                         <h1>devCodeCamp</h1>
                         <h2></h2>
                         <p>
-                            Studying to become a certified full-stack developer.
+                            12 immersive weeks of hands-on software development training.
                         </p>
                     </li>
                     <li class="date" data-date="2017 - 2020">
@@ -237,19 +240,20 @@
         <div class="container">
             <div class="section-heading">
                 <h1>Contact</h1>
-                <h6>Work with me.</h6>
+                <h6>Work with me</h6>
             </div>
-            <form
-                action="https://formspree.io/mlepvapv"
-                method="POST"
-                >
+            <form action="https://formspree.io/mlepvapv" method="POST">
+                <label>
+                    Your name:
+                    <input type="text" name="_sendername" placeholder="Enter your name...">
+                </label>
                 <label>
                     Your email:
-                    <input type="text" name="_replyto">
+                    <input type="text" name="_replyto" placeholder="Enter your email...">
                 </label>
                 <label>
                     Your message:
-                    <textarea name="message"></textarea>
+                    <textarea type = "text" name="message" placeholder="What's up?" rows="10"></textarea>
                 </label>
 
                 <!-- other form fields here -->

@@ -466,6 +466,7 @@ li{
 form{
     width: 70%;
     margin: 0 auto;
+    padding-bottom: 2rem;
 }
 
 form label{
