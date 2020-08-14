@@ -230,12 +230,12 @@ li{
 
 .landing-text h1{
     text-align: center;
-    font-size: 10rem;
+    font-size: 11rem;
     font-family: 'Roboto Bold';
+    text-transform: uppercase;
     background: linear-gradient(to top, #ffffff, #00ffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
     user-select: none;
 }
 
@@ -551,7 +551,6 @@ button:hover{
 @media screen and  (max-width: 768px) {
     .landing-text h1{
         font-size: 8rem;
-
     }
 
     .landing-text p{
@@ -647,17 +646,7 @@ button:hover{
     }
 
     .landing-text p{
-        font-size: 1rem;
-    }
-
-    .top-nav{
-        width: 50%
-    }
-
-    .nav-list{
-        flex-direction: column;
-        width: 50%;
-        margin: auto;
+        font-size: 2rem;
     }
 
     li{
