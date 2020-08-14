@@ -479,7 +479,7 @@ textarea{
     outline-color: #00ffff;
 }
 
-button[type="submit"]{
+button{
     width: initial;
     background-color: #00ffff;
     color: #ffffff;
@@ -490,7 +490,7 @@ button[type="submit"]{
     animation: pulse 2s infinite;
 }
 
-button[type="submit"]:hover{
+button:hover{
     color: #008080;
     background-color: #F1502F;
 }
