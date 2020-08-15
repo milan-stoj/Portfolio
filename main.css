@@ -1,3 +1,7 @@
+
+
+
+/* ∨∨∨ START font families ∨∨∨ */
 @font-face {
     font-family: 'Roboto Bold';
     src: url('fonts/roboto-regular-webfont.woff2') format('woff2'),
@@ -21,10 +25,11 @@
     font-weight: normal;
     font-style: normal;
   }
+/* ∧∧∧ END font families ∧∧∧ */
 
 
 
-/* --------- START GLOBAL STYLES --------- */
+/* ∨∨∨ START global styles ∨∨∨ */
 *{
     margin: 0;
     padding: 0;
@@ -62,16 +67,17 @@ p{
 img{
     width: 100%;
 }
-/* xxxxxxxxxx END GLOBAL STYLES xxxxxxxxxx */
+/* ∧∧∧ END global styles ∧∧∧ */
 
-/* oooooooooo START REUSABLE STYLES oooooooooo */
+
+
+/* ∨∨∨ START generic styles ∨∨∨ */
 .container{
     width: 90%;
     max-width: 120rem;
     height: 100%;
     margin: 0 auto;
     position: relative;
-    overflow-x: hidden;
 }
 
 .section-heading{
@@ -120,8 +126,11 @@ img{
 .has-margin-right{
     margin-right: 5rem;
 }
+/* ∧∧∧ END generic styles ∧∧∧ */
 
-/* oooooooooo START HEADER STYLES oooooooooo */
+
+
+/* ∨∨∨ START header/home styles ∨∨∨ */
 header{
     width: 100%;
     height: 100vh;
@@ -218,7 +227,6 @@ li{
     transform: rotate(-270deg) translateX(-1.7rem);
 }
 
-
 .landing-text{
     position: absolute;
     top: 50%;
@@ -244,11 +252,11 @@ li{
     font-size: 3rem;
     text-transform: uppercase;
 }
+/* ∧∧∧ END header/home styles ∧∧∧ */
 
-/* ---------- END HEADER STYLES ---------- */
 
 
-/* --------- START ABOUT STYLES --------- */
+/* ∨∨∨ START about-me styles ∨∨∨ */
 .about .container{
     display: flex;
     align-items: center;
@@ -272,7 +280,6 @@ li{
 .about-heading h6{
     font-size: 3rem;
 }
-
 
 .profile-img{
     flex: 1;
@@ -305,11 +312,11 @@ li{
 .fa-facebook-square:hover{
     color: #3b5998;
 }
-/* ---------- END ABOUT STYLES ---------- */
+/* ∧∧∧ END about-me styles ∧∧∧ */
 
 
-/* --------- START SKILLS STYLES --------- */
 
+/* ∨∨∨ START skills styles ∨∨∨ */
 .my-skills{
     margin-top: 4rem;
     display: grid;
@@ -318,8 +325,6 @@ li{
     grid-gap: 2.5rem;
     text-align: center;
 }
-
-
 
 .skill{
     display: flex;
@@ -354,9 +359,11 @@ li{
     margin: auto;
     transform: rotate(-45deg);
 }
-/* ---------- END SKILLS STYLES ---------- */
+/* ∧∧∧ END skills styles ∧∧∧ */
 
-/* ---------- START PORTFOLIO ITEMS ---------- */
+
+
+/* ∨∨∨ START portfolio items ∨∨∨ */
 .portfolio-item{
     display: flex;
     align-items: center;
@@ -405,9 +412,11 @@ li{
 .portfolio-description .cta:hover{
     color: #008080;
 }
+/* ∧∧∧ END portfolio items ∧∧∧ */
 
 
-/* ---------- Start Timeline --------------*/
+
+/* ∨∨∨ START timeline styling ∨∨∨ */
 .timeline ul{
     border-left: 4px solid #00ffff;
     border-radius: 1rem;
@@ -464,12 +473,20 @@ li{
     height: 1rem;
     background-color: #ffffff;
 }
+/* ∧∧∧ END timeline styling ∧∧∧ */
 
-/* Begin Contact Form */
+
+
+/* ∨∨∨ START contact form styling ∨∨∨ */
+.contact .container{ 
+    overflow-y: hidden; /*Fixed issue with contact form creating a scroll bar during animation*/
+}
+
 form{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
-    padding-bottom: 2rem;
+    padding: 2rem; 
+    overflow-y: hidden;
 }
 
 form label{
@@ -501,9 +518,11 @@ button:hover{
     color: #008080;
     background-color: #F1502F;
 }
+/* ∧∧∧ END contact form styling ∧∧∧ */
 
 
-/* copyright settings */
+
+/* ∨∨∨ START footer styling ∨∨∨ */
 .copyright{
     width: 100%;
     text-align: center;
@@ -534,9 +553,12 @@ button:hover{
 .copyright p{
     font-size: 2rem;
 }
+/*  ∧∧∧ END footer styling ∧∧∧ */
 
-/*Defining keyframes for pulsing animation */
-@keyframes pulse{
+
+
+/* ∨∨∨ START animations ∨∨∨ */
+@keyframes pulse{ /*Defining keyframes for ~pulsing~ animation */
     0%{
         box-shadow: 0 0 0 0 rgba(87, 253, 253, 0.99);
     }
@@ -547,6 +569,8 @@ button:hover{
         box-shadow: 0 0 0 0 rgba(87, 253, 253, 0.0);
     }
 }
+/*  ∧∧∧ END animations ∧∧∧ */
+
 
 
 /* Changing the size of elements when the 
@@ -581,7 +605,7 @@ button:hover{
 
     .nav-link{
         font-size: 3rem;
-    }
+}
 
     .about .container{
         flex-direction: column;
@@ -589,7 +613,7 @@ button:hover{
 
     .profile-img{
         margin: 0 0 1rem 0;
-    }
+}
 
     .portfolio-item{
         flex-direction: column;
