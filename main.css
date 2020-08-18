@@ -145,7 +145,7 @@ header{
     background: linear-gradient(to top, #000000, #022B3A);
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
-    transition: all 650ms cubic-bezier(1,0,0,1);
+    transition: all 1000ms cubic-bezier(1,0,0,1);
 }
 
 .nav-list{
@@ -332,6 +332,10 @@ li{
     justify-content: center;
     align-items: center;
     padding: 2rem;
+}
+
+.skill li{
+    font-size: 2rem;
 }
 
 .skill h1{
