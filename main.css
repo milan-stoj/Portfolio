@@ -349,8 +349,9 @@ li{
 .icon-container{
     width: 10rem;
     height: 10rem;
-    border-radius: 10%;
+    border-radius: 1rem;
     border: 3px solid  #00ffff;
+    -webkit-filter: drop-shadow(1rem 1rem 0.5rem rgb(0, 0, 0));
     background-color:  #ffffff;
     margin-bottom: 2rem;
     display: flex;
@@ -381,7 +382,10 @@ li{
 
 .portfolio-img{
     flex: 1;
-    border: 2px solid #00ffff;
+    vertical-align: middle;
+    border-radius: 1rem;
+    border: 3px solid #00ffff;
+    -webkit-filter: drop-shadow(1rem 1rem 0.5rem rgb(0, 0, 0));
 }
 
 .portfolio-description{
