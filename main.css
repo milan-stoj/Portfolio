@@ -381,7 +381,6 @@ li{
 }
 
 .portfolio-img{
-    flex: 1;
     vertical-align: middle;
     border-radius: 1rem;
     border: 3px solid #00ffff;
@@ -398,11 +397,12 @@ li{
     font-family: 'Roboto Bold';
     font-size: 3rem;
     opacity: 0.3;
+    text-align: left;
 }
 
 .portfolio-description h1{
     text-transform: uppercase;
-    
+    text-align: left;
     font-family: 'Roboto Bold';
     font-size: 2rem;
     margin: 1rem 0;
@@ -429,12 +429,12 @@ li{
     border-left: 4px solid #00ffff;
     border-radius: 1rem;
     background-color: rgba(0,0,0,0.1);
-    margin: 0 auto;
+    margin: 0 0 0 auto;
     position: relative;
     padding: 3rem;
     list-style: none;
     text-align: left;
-    width: 70%;
+    width: 75%;
 }
 
 .timeline h1{
@@ -459,6 +459,8 @@ li{
 .timeline .date::before,
 .timeline .date::after{
     position: absolute;
+    font-size: 1.8rem;
+    text-align: right;
     display: block;
     top: 50%;
     transform: translateY(-50%);
@@ -466,10 +468,8 @@ li{
 
 .timeline .date::before{
     content: attr(data-date);
-    left: -20rem;
-    text-align: right;
-    min-width: 12rem;
-    font-size: 2rem;
+    left: -25rem;
+    min-width: 16rem;
 }
 
 .timeline .date::after{
@@ -667,12 +667,22 @@ button:hover{
         font-size: 4rem;
     }
 
+    .timeline h1{
+        font-size: 1.8rem;
+
+    }
+
+    .timeline p{
+        font-size: 1.8rem;
+    }
+
     .timeline ul{
         margin: 0 0 0 auto;
     }
 
     .timeline .date::before{
-        left: -18rem;
+        font-size: 1.5rem;
+        left: -21rem;
     }
 
     .timeline .date::after{
