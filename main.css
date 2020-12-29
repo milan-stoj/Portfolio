@@ -64,6 +64,12 @@ p{
     font-family: 'Roboto Thin';
 }
 
+table{
+    width: 100%;
+    font-size: 2.00rem;
+    margin: 0 auto;
+}
+
 img{
     width: 100%;
 }
@@ -434,7 +440,7 @@ li{
     padding: 3rem;
     list-style: none;
     text-align: left;
-    width: 75%;
+    width: 66%;
 }
 
 .timeline h1{
@@ -468,8 +474,8 @@ li{
 
 .timeline .date::before{
     content: attr(data-date);
-    left: -25rem;
-    min-width: 16rem;
+    left: -26rem;
+    min-width: 18rem;
 }
 
 .timeline .date::after{
@@ -608,7 +614,7 @@ button:hover{
     }
 
     li{
-        margin: 2rem 0rem;
+        margin: 0rem 0rem;
     }
 
     .nav-link{
@@ -682,7 +688,7 @@ button:hover{
 
     .timeline .date::before{
         font-size: 1.5rem;
-        left: -21rem;
+        left: -23rem;
     }
 
     .timeline .date::after{
@@ -703,7 +709,7 @@ button:hover{
     }
 
     li{
-        margin: 2rem 0rem;
+        margin: 0rem 0rem;
     }
 
     .nav-link{
@@ -727,7 +733,7 @@ button:hover{
     }
 
     .portfolio-img{
-        margin: 0 0 1rem 0;
+        margin: 1rem 0 1rem 0;
         order: 1;
     }
 
