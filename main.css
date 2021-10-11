@@ -55,6 +55,7 @@ a{
     color: #eee;
 }
 
+
 section{
     padding: 6rem 0;
 }
@@ -418,16 +419,29 @@ li{
     margin: 1rem 0;
 }
 
-.portfolio-description .cta{
+.portfolio-description .cta {
     display: inline-block;
-    margin-top: 1rem;
-    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #00ffff;
+    transition: color 650ms;
+}
+
+.portfolio-description .cta-inline {
+    display: inline-block;
+    margin-top: 0rem;
+    font-size: 2rem;
     text-transform: uppercase;
     color: #00ffff;
     transition: color 650ms;
 }
 
 .portfolio-description .cta:hover{
+    color: #008080;
+}
+
+.portfolio-description .cta-inline:hover{
     color: #008080;
 }
 /* ∧∧∧ END portfolio items ∧∧∧ */
