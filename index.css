@@ -1,0 +1,126 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    padding: 1rem;
+}
+
+#shell-welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes maximize {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.terminal {
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    min-height: 300px;
+    min-width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1080px;
+    max-height: 720px;
+    transform-origin: bottom left;
+    transform: scale(0); /* Initially minimized */
+}
+
+.terminal.maximize {
+    animation: maximize 0.7s 0.5s forwards; /* Add delay and easing */
+}
+
+.terminal-header {
+    background-color: #333;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-button.red {
+    background-color: #ff5f56;
+}
+
+.terminal-button.yellow {
+    background-color: #ffbd2e;
+}
+
+.terminal-button.green {
+    background-color: #27c93f;
+}
+
+.terminal-body {
+    overflow-y: auto; /* Make the terminal body scrollable */
+    padding: 20px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+    flex-grow: 1; /* Allow the terminal body to grow and take available space */
+}
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+#prompt, #datetime {
+    color: cyan;
+}
+
+.stdout-text {
+    position: relative;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+@media (max-width: 600px) {
+    .terminal {
+        font-size: 12px;
+    }
+}
+
+
+/* Responsive design for landscape phone sreens */
+@media (max-width: 800px) and (orientation: landscape) {
+    .terminal {
+        font-size: 8px;
+    }
+}
