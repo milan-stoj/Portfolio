@@ -50,6 +50,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         const text = await response.text();
         const lines = text.split('\n');
 
-        await outputToStdout(stdout, lines, 50,150);
+        await outputToStdout(stdout, lines, 33,100);
     }
 });

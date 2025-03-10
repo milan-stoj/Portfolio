@@ -44,12 +44,17 @@ v0.4.7 Ⓒ 2025
 
 export async function outputToStdout(stdoutElement, messages, delayLow, delayHigh) {
     let messageIndex = 0;
+    let stdoutText = stdoutElement.querySelector(".stdout-text");
+
+    if (!stdoutText) {
+        stdoutText = document.createElement("div");
+        stdoutText.className = "stdout-text";
+        stdoutElement.appendChild(stdoutText);
+    }
 
     while (messageIndex < messages.length) {
-        const message = document.createElement("div");
-        message.className = "stdout-text";
-        message.textContent = messages[messageIndex] === "" ? "\u00A0" : messages[messageIndex]; // Handle empty strings
-        stdoutElement.appendChild(message);
+        const message = messages[messageIndex] === "" ? "\u00A0" : messages[messageIndex]; // Handle empty strings
+        stdoutText.textContent += message + "\n";
 
         messageIndex++;
         const delayTime = Math.random() * delayLow + delayHigh; // Random delay between 150ms and 450ms
@@ -58,7 +63,7 @@ export async function outputToStdout(stdoutElement, messages, delayLow, delayHig
     await delay(1000);
 }
 
-export function displayLoadingBar(stdout) {
+export async function displayLoadingBar(stdout) {
     const loadingBar = document.createElement("div");
     loadingBar.className = "stdout-text";
     loadingBar.textContent = "Building: [                    ]";
@@ -68,11 +73,12 @@ export function displayLoadingBar(stdout) {
     const interval = setInterval(() => {
         progress++;
         const bar = "█".repeat(progress) + " ".repeat(20 - progress);
-        loadingBar.textContent = `Building: [${bar}]`;
+        loadingBar.textContent = `Building: [${bar}] ${progress * 5}%`;
 
         if (progress >= 20) {
             clearInterval(interval);
             loadingBar.textContent = "Building: [████████████████████] Complete!";
         }
     }, 200); // Update every 200ms
+    await delay(5000);
 }
