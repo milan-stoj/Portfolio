@@ -15,14 +15,6 @@ body {
     padding: 1rem;
 }
 
-#shell-welcome {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
 @keyframes maximize {
     from {
         transform: scale(0);

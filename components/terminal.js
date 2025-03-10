@@ -70,15 +70,16 @@ export async function displayLoadingBar(stdout) {
     stdout.appendChild(loadingBar);
 
     let progress = 0;
-    const interval = setInterval(() => {
-        progress++;
-        const bar = "█".repeat(progress) + " ".repeat(20 - progress);
-        loadingBar.textContent = `Building: [${bar}] ${progress * 5}%`;
+    const totalProgress = 20;
+    const delayTime = 200; // Update every 200ms
 
-        if (progress >= 20) {
-            clearInterval(interval);
-            loadingBar.textContent = "Building: [████████████████████] Complete!";
-        }
-    }, 200); // Update every 200ms
-    await delay(5000);
+    while (progress < totalProgress) {
+        progress++;
+        const bar = "█".repeat(progress) + " ".repeat(totalProgress - progress);
+        loadingBar.textContent = `Building: [${bar}] ${progress * 5}%`;
+        await delay(Math.random() * delayTime + delayTime);
+    }
+
+    loadingBar.textContent = "Building: [████████████████████] Complete!";
+    await delay(1000); // Optional delay to show the complete message
 }
