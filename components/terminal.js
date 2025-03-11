@@ -1,85 +1,108 @@
-import { delay, updateDateTime } from './utils.js';
+import { doStuff, randomDelay, updateDateTime } from './utils.js';
 
-export async function typeMessage(terminalText, initialMessages) {
+
+const STDOUT = document.getElementById("stdout");
+const TERMINAL = document.querySelector('.terminal');
+const TERMINAL_BODY = document.querySelector('.terminal-body');
+const PORTFOLIO = document.getElementById('portfolio');
+
+
+export async function typeToStdout(initialMessages, initialDelay) {
+    STDOUT.innerHTML += `<span class='prompt'>${updateDateTime()}</span> λ > `;
     let messageIndex = 0;
     let charIndex = 0;
 
+    await randomDelay(800, 1000);
     while (messageIndex < initialMessages.length) {
         if (charIndex < initialMessages[messageIndex].length) {
-            terminalText.innerHTML += initialMessages[messageIndex].charAt(charIndex);
+            STDOUT.innerHTML += initialMessages[messageIndex].charAt(charIndex);
             charIndex++;
-            const delayTime = Math.random() * 150 + 50; // Random delay between 50ms and 200ms
-            await delay(delayTime);
+            await randomDelay(50, 150);
         } else {
             charIndex = 0;
             messageIndex++;
             if (messageIndex < initialMessages.length) {
-                terminalText.innerHTML += `<br><span class='prompt'>${updateDateTime()}</span> λ > `;
-                await delay(500);
+                STDOUT.innerHTML += `<br><span class='prompt'>${updateDateTime()} λ > </span>`;
             }
+            await randomDelay(800, 1000);
         }
     }
+    STDOUT.innerHTML += `<br>`;
 }
 
-export async function clearTerminal(terminalText, stdout) {
-    terminalText.innerHTML = "";
-    stdout.innerHTML = "";
-    await delay(1000);
+export async function clear() {
+    STDOUT.innerHTML = "";
+    await doStuff('M');
 }
 
-export async function displayAsciiArt(terminalText) {
+export async function displayAsciiArt() {
     const asciiArt = `
-░       ░░░       ░░░░      ░░
-▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒
-▓       ▓▓▓       ▓▓▓▓      ▓▓
-█  ████████  ████  ████████  █
-█  ████████       ████      ██
-
-Portfolio Build System
-v0.4.7 Ⓒ 2025
         `;
-    terminalText.innerHTML = `<pre>${asciiArt}</pre>`;
-    await delay(2000);
+    STDOUT.innerHTML = `<pre>${asciiArt}</pre>`;
+    await doStuff('L');
 }
 
-export async function outputToStdout(stdoutElement, messages, delayLow, delayHigh) {
+export async function printToStdout(messages, delayLow, delayHigh) {
     let messageIndex = 0;
-    let stdoutText = stdoutElement.querySelector(".stdout-text");
-
-    if (!stdoutText) {
-        stdoutText = document.createElement("div");
-        stdoutText.className = "stdout-text";
-        stdoutElement.appendChild(stdoutText);
-    }
 
     while (messageIndex < messages.length) {
         const message = messages[messageIndex] === "" ? "\u00A0" : messages[messageIndex]; // Handle empty strings
-        stdoutText.textContent += message + "\n";
-
+        STDOUT.textContent += message + "\n";
         messageIndex++;
-        const delayTime = Math.random() * delayLow + delayHigh; // Random delay between 150ms and 450ms
-        await delay(delayTime);
+        await randomDelay(delayLow, delayHigh);
     }
-    await delay(1000);
+    await doStuff('L');
 }
 
-export async function displayLoadingBar(stdout) {
+export async function displayLoadingBar() {
     const loadingBar = document.createElement("div");
-    loadingBar.className = "stdout-text";
     loadingBar.textContent = "Building: [                    ]";
-    stdout.appendChild(loadingBar);
+    STDOUT.appendChild(loadingBar);
 
     let progress = 0;
     const totalProgress = 20;
-    const delayTime = 200; // Update every 200ms
 
     while (progress < totalProgress) {
         progress++;
         const bar = "█".repeat(progress) + " ".repeat(totalProgress - progress);
         loadingBar.textContent = `Building: [${bar}] ${progress * 5}%`;
-        await delay(Math.random() * delayTime + delayTime);
+        await randomDelay(100, 500);
     }
 
     loadingBar.textContent = "Building: [████████████████████] Complete!";
-    await delay(1000); // Optional delay to show the complete message
+    await doStuff('XL'); // Optional delay to show the complete message
+}
+
+export async function maximize() {
+    TERMINAL.classList.remove('minimize');
+    TERMINAL.classList.add('maximize');
+}
+
+export async function minimize() {
+    TERMINAL.classList.remove('maximize');
+    TERMINAL.classList.add('minimize');
+}
+
+export async function renderHtmlToTerminal(htmlFilePath) {
+    try {
+        const response = await fetch(htmlFilePath);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${htmlFilePath}: ${response.statusText}`);
+        }
+        const htmlContent = await response.text();
+
+        // Split content by blank lines (one or more newlines with optional spaces)
+        const sections = htmlContent.split(/\n\s*\n/);
+
+        // Clear existing content
+        TERMINAL_BODY.innerHTML = "";
+
+        for (const s of sections) {
+            await new Promise(resolve => setTimeout(resolve, 300)); // Adjust delay as needed
+            TERMINAL_BODY.innerHTML += `${s.trim()}`; // Wrap in <p> for better formatting
+        }
+    } catch (error) {
+        console.error(error);
+        TERMINAL_BODY.innerHTML = `<p>Error loading content. Please try again later.</p>`;
+    }
 }

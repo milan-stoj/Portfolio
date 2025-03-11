@@ -1,7 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body, html {
+    font-size: 12px;
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,12 +23,32 @@ body {
     padding: 1rem;
 }
 
+a {
+    color: cyan;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+a:hover {
+    color: #00ffff; /* Slightly different cyan color on hover */
+}
+
 @keyframes maximize {
     from {
         transform: scale(0);
     }
     to {
         transform: scale(1);
+    }
+}
+
+@keyframes minimize {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
     }
 }
 
@@ -37,12 +65,20 @@ body {
     width: 100%;
     max-width: 1080px;
     max-height: 720px;
-    transform-origin: bottom left;
+    transform-origin: left;
     transform: scale(0); /* Initially minimized */
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.4s ease-in-out; /* Smooth transition */
 }
 
 .terminal.maximize {
-    animation: maximize 0.7s 0.5s forwards; /* Add delay and easing */
+    opacity: 1;
+    transform: scale(1);
+}
+
+.terminal.minimize {
+    opacity: 0;
+    transform: scale(0);
 }
 
 .terminal-header {
@@ -86,6 +122,7 @@ body {
     color: cyan;
     text-shadow: 0 0 10px cyan;
     flex-grow: 1; /* Allow the terminal body to grow and take available space */
+    position: relative;
 }
 
 pre {
@@ -93,26 +130,275 @@ pre {
     white-space: pre-wrap;
 }
 
-#prompt, #datetime {
-    color: cyan;
+.terminal-body header {
+    z-index: 9999;
+    top: -20px;
+    left: 0;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    background-color: #1e1e1e;
+    margin-top: -20px;
+    margin-left: -20px; /* Offset the left padding */
+    margin-right: -20px; /* Offset the right padding */
+    margin-bottom: 20px;
+    border-bottom: cyan 2px solid;
+    box-shadow: 0 0 10px cyan; /* Add blue glowing effect */
 }
 
-.stdout-text {
-    position: relative;
+.terminal-body footer {
+    padding-top: 3rem;
+    background-color: #1e1e1e;
+    margin-bottom: -20px;
+    margin-left: -20px; /* Offset the left padding */
+    margin-right: -20px; /* Offset the right padding */
+    margin-top: 3rem;
+    border-top: cyan 2px solid;
+    box-shadow: 0 0 10px cyan; /* Add blue glowing effect */
+}
+
+.terminal-body section::before {
+    content: "";
+    display: block;
+    height: 80px; /* Adjust this value based on the height of your header */
+    margin-top: -80px; /* Adjust this value based on the height of your header */
+    visibility: hidden;
+}
+
+nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    width: 100%; /* Ensure the nav takes the full width */
+}
+
+nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0; /* Remove gap to ensure even distribution */
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content within each li */
+    flex: 1; /* Distribute space evenly */
+    padding: 8px; /* Add padding to create space between the text and the border */
+}
+
+nav ul li + li {
+    border-left: 2px solid cyan; /* Add vertical border between items */
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.pt-2 {
+    padding-top: 2rem;
+}
+
+.pb-3 {
+    padding-bottom: 3rem;
+}
+.pb-2 {
+
+}
+.pb-1 {
+    padding-bottom: 1rem;
+}
+
+.flex-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.flex-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.hover-icon i{
+    font-size: 3rem;
+    color: #1e1e1e;
+   transition: color 650ms;
+}
+
+.fa-linkedin:hover{
+    color: #0072b1;
+}
+
+.fa-github-square:hover{
+    color: #F1502F;
+}
+
+.fa-facebook-square:hover{
+    color: #3b5998;
+}
+
+.fa-strava:hover{
+    color: #fc4c02;
+}
+
+.terminal-body section {
+    margin-top: 5rem;
+}
+
+.terminal-body pre {
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+/* Flexbox utility classes */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-gap-1 {
+    gap: 1rem;
+}
+
+.flex-gap-2 {
+    gap: 2rem;
+}
+
+.flex-gap-3 {
+    gap: 3rem;
+}
+
+.flex-align-start {
+    align-items: flex-start;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-align-end {
+    align-items: flex-end;
+}
+
+.flex-justify-start {
+    justify-content: flex-start;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-justify-between {
+    justify-content: space-between;
+}
+
+.flex-justify-around {
+    justify-content: space-around;
+}
+
+.flex-justify-evenly {
+    justify-content: space-evenly;
+}
+
+form{
+    width: 100%;
+}
+
+form label{
+    font-weight: bold;
+}
+
+input,
+select,
+textarea{
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border-radius: 0;
     color: cyan;
     text-shadow: 0 0 10px cyan;
+    margin-bottom: 1rem;
+    border: 2px solid cyan;
+    font-family: monospace;
 }
 
-@media (max-width: 600px) {
-    .terminal {
-        font-size: 12px;
+button {
+    width: initial;
+    background-color: transparent;
+    border: 2px solid cyan;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: cyan;
+    transition: background-color 650ms;
+    animation: pulse 2s infinite;
+}
+
+button:hover{
+    color: #008080;
+    background-color: #F1502F;
+}
+
+
+/* Medium devices (tablets, 600px to 900px) */
+@media (max-width: 900px) {
+    html {
+        font-size: 10px; /* Medium font size for tablets */
     }
 }
 
+/* Large devices (desktops, 900px and up) */
+@media (min-width: 901px) {
+    html {
+        font-size: 12px; /* Default font size for desktops */
+    }
+}
 
-/* Responsive design for landscape phone sreens */
-@media (max-width: 800px) and (orientation: landscape) {
-    .terminal {
-        font-size: 8px;
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    html {
+        font-size: 14px; /* Larger font size for large desktops */
+    }
+}
+
+/* Responsive design for landscape phone screens */
+@media (max-width: 1100px) and (orientation: landscape) {
+    html {
+        font-size: 10px; /* Adjust font size for landscape orientation */
     }
 }

@@ -1,55 +1,48 @@
-import { delay, updateDateTime } from './components/utils.js';
-import { typeMessage, clearTerminal, displayAsciiArt, outputToStdout, displayLoadingBar } from './components/terminal.js';
+import { doStuff, updateDateTime, getTextFromFile, waitForLandscapeMode, isPhoneInPortraitMode, waitForPortraitMode} from './components/utils.js';
+import { typeToStdout, clear, printToStdout, displayLoadingBar, maximize, minimize, renderHtmlToTerminal } from './components/terminal.js';
 import { setRandomGradient } from './components/gradient.js';
 
 document.addEventListener("DOMContentLoaded", async function() {
-    const terminalText = document.getElementById("terminal-text");
-    const stdout = document.getElementById("stdout");
 
-    // set initial terminal text
-    terminalText.innerHTML = `<span class='prompt'>${updateDateTime()}</span> λ > `;
-
-    const initialMessages = [
-        "hello, world!",
-        "./entrypoint.sh"
-    ];
-    const stdoutMessages = [
-        "",
-        "Initializing...",
-        "Loading projects...",
-        "Rendering about me...",
-        "Setting up contact form...",
-        "Loading skills and experience...",
-        "Starting portfolio services...",
-        "Optimizing images...",
-        "Compiling CSS...",
-    ];
-
-    // Add the maximize effect to the terminal
-    const terminal = document.querySelector('.terminal');
-    setTimeout(() => {
-        terminal.classList.add('maximize');
-    }, 100); // Delay before starting the maximize animation
 
     setRandomGradient();
-    updateDateTime();
-    await delay(2000);
-    await typeMessage(terminalText, initialMessages);
-    await delay(2000);
-    await clearTerminal(terminalText, stdout);
-    await delay(2000);
-    await displayAsciiArt(terminalText);
-    await delay(1000);
-    await outputToStdout(stdout, stdoutMessages, 150, 450);
-    await displayLoadingBar(stdout);
-    await clearTerminal(terminalText, stdout);
-    await loadPortfolioTextToTerminal(stdout);
+    // text element constants
+    const initialMessages = await getTextFromFile('text-elements/hello-world.txt');
+    const mobileMessages = await getTextFromFile('text-elements/mobile.txt');
+    const afterLandscape = await getTextFromFile('text-elements/after-landscape.txt');
+    const afterPortrait = await getTextFromFile('text-elements/after-portrait.txt');
+    const entryPont = await getTextFromFile('text-elements/entrypoint.txt');
+    const pbsSplash = await getTextFromFile('text-elements/pbs/splash.txt');
+    const pbsLoading = await getTextFromFile('text-elements/pbs/loading.txt');
+    const portfolioText = await getTextFromFile('partials/portfolio.html');
 
-    async function loadPortfolioTextToTerminal(stdout) {
-        const response = await fetch('/portfolio.txt');
-        const text = await response.text();
-        const lines = text.split('\n');
+    // main process flow
+    await maximize();
+    await doStuff('L');
+    await typeToStdout(initialMessages, 800);
 
-        await outputToStdout(stdout, lines, 33,100);
+    // // check if on mobile, typeToStdout mobile messages, and waitForLandscapeMode
+    if (isPhoneInPortraitMode()) {
+        await doStuff('L');
+        await typeToStdout(mobileMessages, 50, 150);
+        await doStuff('M');
+        await waitForLandscapeMode();
+        await doStuff('XL');
+        await typeToStdout(afterLandscape, 50, 150);
+        await doStuff('XL');
+        await waitForPortraitMode();
+        await typeToStdout(afterPortrait, 50, 150);
     }
+
+    await typeToStdout(entryPont, 50, 150);
+    await doStuff('M');
+    await clear();
+    await doStuff(2000);
+    await printToStdout(pbsSplash, 10, 50);
+    await doStuff(1000);
+    await printToStdout(pbsLoading, 500, 2000);
+    await displayLoadingBar();
+    await clear();
+    renderHtmlToTerminal('./partials/portfolio.html');
+
 });

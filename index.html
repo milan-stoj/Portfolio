@@ -2,24 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, initial-scale=1, user-scalable=no">
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <span class="terminal-button red"></span>
-                    <span class="terminal-button yellow"></span>
-                    <span class="terminal-button green"></span>
-                </div>
-            </div>
-            <div class="terminal-body">
-                <pre id="terminal-text"></pre>
-                <pre id="stdout"></pre>
+    <div class="terminal" >
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="terminal-button red" ></span>
+                <span class="terminal-button yellow"></span>
+                <span class="terminal-button green"></span>
             </div>
         </div>
+        <div class="terminal-body">
+            <pre id="stdout"></pre>
+        </div>
+    </div>
     <script type="module" src="./index.js"></script>
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
 </body>
 </html>
