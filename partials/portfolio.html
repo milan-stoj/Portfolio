@@ -2,13 +2,16 @@
   <nav>
     <ul>
       <li>
-        <a href="#skills" class="nav-link">SKILLS</a>
+        <a href="#about" id="about-nav">ABOUT</a>
       </li>
       <li>
-        <a href="#experience" class="nav-link">EXPERIENCE</a>
+        <a href="#skills" id="skills-nav">SKILLS</a>
       </li>
       <li>
-        <a href="#contact" class="nav-link">CONTACT</a>
+        <a href="#experience" id="experience-nav">EXPERIENCE</a>
+      </li>
+      <li>
+        <a href="#contact" id="contact-nav">CONTACT</a>
       </li>
     </ul>
   </nav>
@@ -33,8 +36,9 @@
   <span><b>Name:</b> Milan Stojanovic</span><br />
   <span><b>Title:</b> Software Engineer</span><br />
 </section>
-<section>
-  <pre>
+<section id="about">
+  <div class="flex flex-align-bottom flex-justify-start">
+    <pre>
 ┏━━━┓┓┃┃┃┃┃┃┃┃┏┓┃┃┃┃
 ┃┏━┓┃┃┃┃┃┃┃┃┃┃┛┗┓┃┃┃
 ┃┃┃┃┃┗━┓━━┓┓┏┓┓┏┛┃┃┃
@@ -44,7 +48,9 @@
 ┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃
 ┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃
 </pre
-  >
+    >
+    <pre id="profile" style="white-space: pre; font-size: 3px"></pre>
+  </div>
   <div>
     <p>
       Second-generation American, college grad, and computer nerd - born and
@@ -112,14 +118,30 @@
   <div class="flex flex-column flex-gap-3">
     <div class="flex flex-column flex-gap-1">
       <span
-        ><h1><i class="fas fa-cogs"></i> Mechanical Engineering</h1></span
+        ><h1><i class="fas fa-desktop"></i> Front-End Development</h1></span
       >
       <ul class="flex-column">
-        <li>Mechanical Design</li>
-        <li>Thermofluids</li>
-        <li>SolidWorks/Creo</li>
-        <li>Finite Element Analysis</li>
-        <li>VBA/MS-Office Suite</li>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Qt</li>
+        <li>HMI</li>
+      </ul>
+    </div>
+    <div
+      class="flex flex-column flex-gap-1"
+      data-aos="fade-in"
+      data-aos-delay="1200"
+    >
+      <span
+        ><h1><i class="fas fa-code"></i> Back-End Development</h1></span
+      >
+      <ul class="flex-column">
+        <li>Java</li>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>C#</li>
+        <li>Arduino/Raspberry Pi</li>
       </ul>
     </div>
     <div class="flex flex-column flex-gap-1">
@@ -136,30 +158,14 @@
     </div>
     <div class="flex flex-column flex-gap-1">
       <span
-        ><h1><i class="fas fa-desktop"></i> Front-End Development</h1></span
+        ><h1><i class="fas fa-cogs"></i> Mechanical Engineering</h1></span
       >
       <ul class="flex-column">
-        <li>HTML/CSS</li>
-        <li>JavaScript</li>
-        <li>Bootstrap</li>
-        <li>React</li>
-        <li>Qt</li>
-      </ul>
-    </div>
-    <div
-      class="flex flex-column flex-gap-1"
-      data-aos="fade-in"
-      data-aos-delay="1200"
-    >
-      <span
-        ><h1><i class="fas fa-code"></i> Back-End Development</h1></span
-      >
-      <ul class="flex-column">
-        <li>C#/ASP.NET</li>
-        <li>Java</li>
-        <li>Python</li>
-        <li>SQL DB2/zOS</li>
-        <li>Arduino/Raspberry Pi</li>
+        <li>Mechanical Design</li>
+        <li>Thermofluids</li>
+        <li>SolidWorks/Creo</li>
+        <li>Finite Element Analysis</li>
+        <li>Rapid Prototyping</li>
       </ul>
     </div>
   </div>
@@ -183,59 +189,61 @@
     >
       <li>
         <h1>Software Engineer II</h1>
-        <h2>Northwestern Mutual</h2>
-        <p class="mb-1">Mar 2022 - Present</p>
-        <p>
-          Software Engineer on Information Solution Design (ISD) team. Building
-          skills in SQL stored procedures, data governance, and mainframe (DB2
-          z/OS).
+        <h2>Northwestern Mutual - Milwaukee, WI</h2>
+        <p class="mb-1">
+          <i class="fas fa-calendar-alt"></i> Mar 2022 - Present
+        </p>
+        <p class="quote-block">
+          Engineer on the product administration platform team.
+          Developed and deployed high-availability backend services in Java,
+          focusing on handling financial product data using AWS cloud
+          infrastructure. Developed a React front-end to display and interact
+          with financial product data.
         </p>
       </li>
       <li>
-        <h1>Dev10 Consultant - Genesis10</h1>
-        <h2 class="mb-1">Feb 2021 - Mar 2022</h2>
-        <p>
-          Software Development/Engineering consultant for Milwaukee based
-          Genesis10 clients.
+        <h1>Software Engineer Trainee/Contractor</h1>
+        <h2>Genesis10 - Milwaukee, WI</h2>
+        <p class="mb-1">
+          <i class="fas fa-calendar-alt"></i> Dec 2020 - Mar 2022
+        </p>
+        <p class="quote-block">
+          Got picked for the December 2020 Milwaukee Cohort of the Dev10
+          Program. Learned Java and React Full Stack Development.
         </p>
       </li>
       <li>
-        <h1>Dev10 Trainee - Genesis10</h1>
-        <h2 class="mb-1">Dec 2020 - Feb 2021</h2>
-        <p>
-          Selected to join the December 2020 Milwaukee Cohort for the Dev10
-          Program. Consultant training in Java and React Full Stack Development.
+        <h1>Quality Engineer</h1>
+        <h2>SPX Transformer Solutions - Waukesha, WI</h2>
+        <p class="mb-1">
+          <i class="fas fa-calendar-alt"></i> Jan 2018 - Jun 2020
+        </p>
+        <p class="quote-block">
+          Worked on quality engineering for transformer coil winding, insulation
+          fabrication, and assembly processes. Led a team to develop solutions
+          to manufacturing problems. Created detailed reports with data analysis
+          and recommendations for improvements. Used statistical process control
+          (SPC) methods to monitor and maintain quality consistency.
         </p>
       </li>
       <li>
-        <h1>Student - devCodeCamp</h1>
-        <h2 class="mb-1">Jul 2020 - Oct 2020</h2>
-        <p>12 immersive weeks of hands-on software development training.</p>
-      </li>
-      <li class="date" data-date="Jan 2018 - Jun 2020">
-        <h1>Quality Engineer - SPX Transformer Solutions</h1>
-        <h2 class="mb-1">Jan 2018 - Jun 2020</h2>
-        <p>
-          Quality engineer for transformer coil winding, insulation-fabrication,
-          and external-component assembly processes. Lead a cross-functional
-          team in the development of corrective/preventative actions to reduce
-          non-conformance's.
+        <h1>Quality Engineer</h1>
+        <h2>Masterlock Corporation - Milwaukee, WI</h2>
+        <p class="mb-1"><i class="fas fa-calendar-alt"></i> Jun 2017 - Dec 2017</p>
+        <p class="quote-block">
+          Learned the ropes of being a Quality/Reliability engineer. Got
+          hands-on with test development, test automation, and a bunch of
+          improvement projects. Built a lock-testing system using Raspberry Pi,
+          Python, and motor drives. Reassembled and prototyped a robotic system
+          to automate testing of digital safes. 
         </p>
       </li>
-      <li class="date" data-date="Jun 2017 - Dec 2017">
-        <h1>Quality Engineer - Masterlock Corporation</h1>
-        <h2 class="mb-1">Jun 2017 - Dec 2017</h2>
-        <p>
-          Learned and performed the basic roles of a Quality/Reliability
-          Engineer. Actively participated in test development and several
-          continuous improvement projects.
-        </p>
-      </li>
-      <li class="date" data-date="Sep 2013 - Dec 2017">
-        <h1>University of Wisconsin Milwaukee - Student</h1>
-        <h2 class="mb-1">Sep 2013 - Dec 2017</h2>
-        <p>
-          Bachelor of Science, Engineering (3.3 GPA). Member of UWM Prototyping
+      <li>
+        <h1>Student</h1>
+        <h2>University of Wisconsin - Milwaukee</h2>
+        <p class="mb-1"><i class="fas fa-calendar-alt"></i> Sep 2013 - Dec 2017</p>
+        <p class="quote-block">
+          Bachelor of Science, Engineering (3.3 GPA). Member of the UWM Prototyping
           Club
         </p>
       </li>

@@ -17,7 +17,7 @@ export async function typeToStdout(initialMessages, initialDelay) {
         if (charIndex < initialMessages[messageIndex].length) {
             STDOUT.innerHTML += initialMessages[messageIndex].charAt(charIndex);
             charIndex++;
-            await randomDelay(50, 150);
+            await randomDelay(75, 125);
         } else {
             charIndex = 0;
             messageIndex++;
@@ -91,16 +91,15 @@ export async function renderHtmlToTerminal(htmlFilePath) {
         }
         const htmlContent = await response.text();
 
-        // Split content by blank lines (one or more newlines with optional spaces)
-        const sections = htmlContent.split(/\n\s*\n/);
-
         // Clear existing content
         TERMINAL_BODY.innerHTML = "";
+        TERMINAL_BODY.innerHTML = htmlContent; // Wrap in <p> for better formatting
 
-        for (const s of sections) {
-            await new Promise(resolve => setTimeout(resolve, 300)); // Adjust delay as needed
-            TERMINAL_BODY.innerHTML += `${s.trim()}`; // Wrap in <p> for better formatting
-        }
+        const profile = await fetch("text-elements/profile.txt");
+        const profileText = await profile.text();
+        const profilePreTag = document.getElementById("profile");
+        profilePreTag.textContent = profileText;
+
     } catch (error) {
         console.error(error);
         TERMINAL_BODY.innerHTML = `<p>Error loading content. Please try again later.</p>`;

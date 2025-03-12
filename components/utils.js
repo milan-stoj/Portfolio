@@ -52,12 +52,12 @@ function sizeToMs(size) {
         ms = 3000;
         break;
         default:
-        ms = 1000; // Default to MEDIUM if no valid process size is provided
+        ms = 500; // Default to MEDIUM if no valid process size is provided
     }
     return ms;
 }
 
-export function getTextFromFile(filePath) {
+export function textLinesToArray(filePath) {
     return fetch(filePath)
         .then(response => response.text())
         .then(text => text.split('\n'));
