@@ -1,4 +1,4 @@
-export function doStuff(sizeOrMs) {
+export function wait(sizeOrMs) {
   let ms;
   if (typeof sizeOrMs === 'number') {
     ms = sizeOrMs;

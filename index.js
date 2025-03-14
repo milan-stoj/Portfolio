@@ -1,5 +1,5 @@
 import {
-  doStuff,
+  wait,
   updateDateTime,
   textLinesToArray,
   waitForLandscapeMode,
@@ -15,37 +15,24 @@ import {
   minimize,
   renderHtmlToTerminal,
 } from "./components/terminal.js";
-import { setRandomGradient } from "./components/gradient.js";
+import { setRandomGradient } from "./components/colors.js";
+import { hasVisited } from "./components/client.js";
 
 async function loadTextElements() {
   const [
-    profileText,
     initialMessages,
-    mobileMessages,
-    afterLandscape,
-    afterPortrait,
-    entryPont,
+    entryPoint,
     pbsSplash,
-    pbsLoading,
-    portfolioText,
+    pbsLoading
   ] = await Promise.all([
-    textLinesToArray("text-elements/profile.txt"),
     textLinesToArray("text-elements/hello-world.txt"),
-    textLinesToArray("text-elements/mobile.txt"),
-    textLinesToArray("text-elements/after-landscape.txt"),
-    textLinesToArray("text-elements/after-portrait.txt"),
     textLinesToArray("text-elements/entrypoint.txt"),
     textLinesToArray("text-elements/pbs/splash.txt"),
     textLinesToArray("text-elements/pbs/loading.txt"),
   ]);
-
   return {
-    profileText,
     initialMessages,
-    mobileMessages,
-    afterLandscape,
-    afterPortrait,
-    entryPont,
+    entryPoint,
     pbsSplash,
     pbsLoading,
   };
@@ -53,48 +40,29 @@ async function loadTextElements() {
 
 async function mainProcessFlow(textElements) {
   await maximize();
-  await doStuff("L");
   await typeToStdout(textElements.initialMessages, 800);
-
-  if (isPhoneInPortraitMode()) {
-    await handleMobileFlow(textElements);
-  }
-
-  await typeToStdout(textElements.entryPont, 50, 150);
-  await doStuff("M");
+  await typeToStdout(textElements.entryPoint, 50, 150);
   await clear();
-  await doStuff(2000);
   await printToStdout(textElements.pbsSplash, 10, 50);
-  await doStuff(1000);
   await printToStdout(textElements.pbsLoading, 500, 2000);
   await displayLoadingBar();
   await clear();
-  renderHtmlToTerminal("./partials/portfolio.html");
-}
-
-async function handleMobileFlow(textElements) {
-  await doStuff("L");
-  await typeToStdout(textElements.mobileMessages, 50, 150);
-  await doStuff("M");
-  await waitForLandscapeMode();
-  await doStuff("XL");
-  await typeToStdout(textElements.afterLandscape, 50, 150);
-  await doStuff("XL");
-  await waitForPortraitMode();
-  await typeToStdout(textElements.afterPortrait, 50, 150);
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
+
   setRandomGradient();
+
   const textElements = await loadTextElements();
-  const hasVisited = localStorage.getItem("hasVisited");
+
   if (hasVisited) {
     maximize();
-    await renderHtmlToTerminal("./partials/portfolio.html");
   } else {
     await mainProcessFlow(textElements);
     localStorage.setItem("hasVisited", true);
   }
+
+  await renderHtmlToTerminal("./partials/portfolio.html");
 
   // handle nav scroll changes.
   const terminalBody = document.querySelector(".terminal-body");

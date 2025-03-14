@@ -17,7 +17,8 @@
   </nav>
 </header>
 <section class="mt-1">
-  <pre>
+  <div class="flex flex-column flex-align-center flex-justify-center">
+    <pre>
 ┏━┓┏━┓━━┏┓━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃┃┗┛┃┃━━┃┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃┏┓┏┓┃┏┓┃┃━┏━━┓━┏━┓━━━━━━━━━━━━━━━━━━━━
@@ -31,13 +32,13 @@
 ┃┗━┛┃━┃┗┓┃┗┛┃━┃┃┃┗┛┗┓┃┃┃┃┃┗┛┃┗┓┏┛┃┃┃┗━┓
 ┗━━━┛━┗━┛┗━━┛━┃┃┗━━━┛┗┛┗┛┗━━┛━┗┛━┗┛┗━━┛
 ━━━━━━━━━━━━━┏┛┃━━━━━━━━━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━┗━┛━━━━━━━━━━━━━━━━━━━━━━━</pre
-  >
-  <span><b>Name:</b> Milan Stojanovic</span><br />
-  <span><b>Title:</b> Software Engineer</span><br />
+━━━━━━━━━━━━━┗━┛━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━SOFTWARE ENGINEER━━━━</pre
+    >
+  </div>
 </section>
 <section id="about">
-  <div class="flex flex-align-bottom flex-justify-start">
+  <div class="flex flex-align-start flex-justify-center">
     <pre>
 ┏━━━┓┓┃┃┃┃┃┃┃┃┏┓┃┃┃┃
 ┃┏━┓┃┃┃┃┃┃┃┃┃┃┛┗┓┃┃┃
@@ -52,27 +53,15 @@
     <pre id="profile" style="white-space: pre; font-size: 3px"></pre>
   </div>
   <div>
+    <p>Hey, I’m Milan - builder of cool, functional things.</p>
+    <br />
     <p>
-      Second-generation American, college grad, and computer nerd - born and
-      raised in the charming village of West Allis, WI.
+      Solving problems with tech is what I do best. 
     </p>
     <br />
     <p>
-      Passionate and detail-oriented software engineer with over three years of
-      experience in full-stack development, specializing in building scalable,
-      high-volume systems. Proven track record of delivering clean, efficient
-      code in Java, React, and AWS environments. Adept at collaborating across
-      teams, troubleshooting production issues, and contributing to the
-      development of high-impact, user-focused platforms.
+      You can reach me on LinkedIn or drop a message through the contact form below.
     </p>
-    <br />
-    <p>
-      Feel free to browse this site, check-out some highlights, and visit my
-      socials. If you'd like to connect, visit my LinkedIn or feel free to reach
-      out using the contact form at the bottom of this page.
-    </p>
-    <br />
-    <p>I'll be sure to hit you back as soon as possible.</p>
     <br />
     <p>-Milan</p>
   </div>
@@ -105,7 +94,8 @@
   </div>
 </section>
 <section id="skills">
-  <pre>
+  <div class="flex flex-align-center flex-justify-center">
+    <pre>
 ┏━━━┓┏┓━━━━┏┓━┏┓━━━━━
 ┃┏━┓┃┃┃━━━━┃┃━┃┃━━━━━
 ┃┗━━┓┃┃┏┓┏┓┃┃━┃┃━┏━━┓
@@ -114,12 +104,16 @@
 ┗━━━┛┗┛┗┛┗┛┗━┛┗━┛┗━━┛
 ━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━━━━━━━━━━━━━
-  </pre>
-  <div class="flex flex-column flex-gap-3">
-    <div class="flex flex-column flex-gap-1">
-      <span
-        ><h1><i class="fas fa-desktop"></i> Front-End Development</h1></span
-      >
+  </pre
+    >
+  </div>
+  <div class="grid">
+    <div class="flex flex-column flex-gap-1 border-box">
+      <div class="flex">
+        <span
+          ><h1><i class="fas fa-desktop"></i> Front-End Development</h1></span
+        >
+      </div>
       <ul class="flex-column">
         <li>HTML/CSS</li>
         <li>JavaScript</li>
@@ -128,14 +122,12 @@
         <li>HMI</li>
       </ul>
     </div>
-    <div
-      class="flex flex-column flex-gap-1"
-      data-aos="fade-in"
-      data-aos-delay="1200"
-    >
-      <span
-        ><h1><i class="fas fa-code"></i> Back-End Development</h1></span
-      >
+    <div class="flex flex-column flex-gap-1 border-box">
+      <div class="flex">
+        <span
+          ><h1><i class="fas fa-code"></i> Back-End Development</h1></span
+        >
+      </div>
       <ul class="flex-column">
         <li>Java</li>
         <li>SQL</li>
@@ -144,10 +136,12 @@
         <li>Arduino/Raspberry Pi</li>
       </ul>
     </div>
-    <div class="flex flex-column flex-gap-1">
-      <span
-        ><h1><i class="fas fa-industry"></i> Quality Engineering</h1></span
-      >
+    <div class="flex flex-column flex-gap-1 border-box">
+      <div class="flex">
+        <span
+          ><h1><i class="fas fa-industry"></i> Quality Engineering</h1></span
+        >
+      </div>
       <ul class="flex-column">
         <li>Manufacturing Concepts</li>
         <li>Inspection Process Design</li>
@@ -156,10 +150,12 @@
         <li>Kaizen</li>
       </ul>
     </div>
-    <div class="flex flex-column flex-gap-1">
-      <span
-        ><h1><i class="fas fa-cogs"></i> Mechanical Engineering</h1></span
-      >
+    <div class="flex flex-column flex-gap-1 border-box">
+      <div class="flex">
+        <span
+          ><h1><i class="fas fa-cogs"></i> Mechanical Engineering</h1></span
+        >
+      </div>
       <ul class="flex-column">
         <li>Mechanical Design</li>
         <li>Thermofluids</li>
@@ -171,7 +167,8 @@
   </div>
 </section>
 <section id="experience">
-  <pre>
+  <div class="flex flex-align-center flex-justify-center">
+    <pre>
 ┏━━━┓━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃┏━━┛━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃┗━━┓┏┓┏┓┏━━┓┏━━┓┏━┓┏┓┏━━┓┏━┓━┏━━┓┏━━┓
@@ -180,8 +177,8 @@
 ┗━━━┛┗┛┗┛┃┏━┛┗━━┛┗┛━┗┛┗━━┛┗┛┗┛┗━━┛┗━━┛
 ━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ━━━━━━━━━┗┛━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    </pre
-  >
+    </pre>
+  </div>
   <div>
     <ul
       class="flex flex-column flex-align-left flex-gap-3"
@@ -194,11 +191,11 @@
           <i class="fas fa-calendar-alt"></i> Mar 2022 - Present
         </p>
         <p class="quote-block">
-          Engineer on the product administration platform team.
-          Developed and deployed high-availability backend services in Java,
-          focusing on handling financial product data using AWS cloud
-          infrastructure. Developed a React front-end to display and interact
-          with financial product data.
+          Engineer on the product administration platform team. Developed and
+          deployed high-availability backend services in Java, focusing on
+          handling financial product data using AWS cloud infrastructure.
+          Developed a React front-end to display and interact with financial
+          product data.
         </p>
       </li>
       <li>
@@ -229,29 +226,34 @@
       <li>
         <h1>Quality Engineer</h1>
         <h2>Masterlock Corporation - Milwaukee, WI</h2>
-        <p class="mb-1"><i class="fas fa-calendar-alt"></i> Jun 2017 - Dec 2017</p>
+        <p class="mb-1">
+          <i class="fas fa-calendar-alt"></i> Jun 2017 - Dec 2017
+        </p>
         <p class="quote-block">
           Learned the ropes of being a Quality/Reliability engineer. Got
           hands-on with test development, test automation, and a bunch of
           improvement projects. Built a lock-testing system using Raspberry Pi,
           Python, and motor drives. Reassembled and prototyped a robotic system
-          to automate testing of digital safes. 
+          to automate testing of digital safes.
         </p>
       </li>
       <li>
         <h1>Student</h1>
         <h2>University of Wisconsin - Milwaukee</h2>
-        <p class="mb-1"><i class="fas fa-calendar-alt"></i> Sep 2013 - Dec 2017</p>
+        <p class="mb-1">
+          <i class="fas fa-calendar-alt"></i> Sep 2013 - Dec 2017
+        </p>
         <p class="quote-block">
-          Bachelor of Science, Engineering (3.3 GPA). Member of the UWM Prototyping
-          Club
+          Bachelor of Science, Engineering (3.3 GPA). Member of the UWM
+          Prototyping Club
         </p>
       </li>
     </ul>
   </div>
 </section>
 <section id="contact">
-  <pre>
+  <div class="flex flex-align-center flex-justify-center">
+    <pre>
 ┏━━━┓┃┃┃┃┃┃┏┓┃┃┃┃┃┃┃┃┏┓┃
 ┃┏━┓┃┃┃┃┃┃┃┛┗┓┃┃┃┃┃┃┃┛┗┓
 ┃┃┃┗┛━━┓━┓┃┓┏┛━━┓┃━━┓┓┏┛
@@ -259,8 +261,8 @@
 ┃┗━┛┃┗┛┃┃┃┃┃┗┓┗┛┗┓┗━┓┃┗┓
 ┗━━━┛━━┛┛┗┛┗━┛━━━┛━━┛┗━┛
 ┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃┃
-    </pre
-  >
+    </pre>
+  </div>
   <div>
     <form
       action="https://formspree.io/mlepvapv"

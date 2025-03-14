@@ -1,10 +1,9 @@
-import { doStuff, randomDelay, updateDateTime } from './utils.js';
+import { wait, randomDelay, updateDateTime } from './utils.js';
 
 
 const STDOUT = document.getElementById("stdout");
 const TERMINAL = document.querySelector('.terminal');
 const TERMINAL_BODY = document.querySelector('.terminal-body');
-const PORTFOLIO = document.getElementById('portfolio');
 
 
 export async function typeToStdout(initialMessages, initialDelay) {
@@ -32,14 +31,14 @@ export async function typeToStdout(initialMessages, initialDelay) {
 
 export async function clear() {
     STDOUT.innerHTML = "";
-    await doStuff('M');
+    await wait('M');
 }
 
 export async function displayAsciiArt() {
     const asciiArt = `
         `;
     STDOUT.innerHTML = `<pre>${asciiArt}</pre>`;
-    await doStuff('L');
+    await wait('L');
 }
 
 export async function printToStdout(messages, delayLow, delayHigh) {
@@ -51,7 +50,7 @@ export async function printToStdout(messages, delayLow, delayHigh) {
         messageIndex++;
         await randomDelay(delayLow, delayHigh);
     }
-    await doStuff('L');
+    await wait('L');
 }
 
 export async function displayLoadingBar() {
@@ -70,12 +69,13 @@ export async function displayLoadingBar() {
     }
 
     loadingBar.textContent = "Building: [████████████████████] Complete!";
-    await doStuff('XL'); // Optional delay to show the complete message
+    await wait('XL'); // Optional delay to show the complete message
 }
 
 export async function maximize() {
     TERMINAL.classList.remove('minimize');
     TERMINAL.classList.add('maximize');
+    await wait('L');
 }
 
 export async function minimize() {

@@ -1,3 +1,11 @@
+:root {
+    --primary-color: cyan;
+    --secondary-color: #1e1e1e;
+    --glow-color: rgba(0, 255, 255, 0.5);
+    --shadow-color: cyan;
+    --hover-color: cyan;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,8 +22,8 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     box-sizing: border-box;
     font-family: monospace;
 }
@@ -25,14 +33,14 @@ body {
 }
 
 a {
-    color: cyan;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
 a:hover {
-    color: #00ffff; /* Slightly different cyan color on hover */
+    color: var(--hover-color); /* Slightly different cyan color on hover */
 }
 
 @keyframes maximize {
@@ -56,7 +64,7 @@ a:hover {
 .terminal {
     display: flex;
     flex-direction: column;
-    background-color: #1e1e1e;
+    background-color: var(--secondary-color);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     min-height: 300px;
@@ -88,6 +96,7 @@ a:hover {
 
 .terminal-header {
     background-color: #333;
+    position: relative;
     padding: 10px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -95,6 +104,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0; /* Prevent shrinking */
+    overflow: hidden;
 }
 
 .terminal-buttons {
@@ -121,12 +131,57 @@ a:hover {
     background-color: #27c93f;
 }
 
+.theme-selector {
+    display: flex;
+    padding-right: 32px;
+    width: 128px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.color-flag-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.color-flag{
+    overflow: hidden;
+    width: 16px; /* Adjust the size as needed */
+    height: 50px; /* Ensure the height matches the width to create a square */
+    position: absolute;
+    transform: rotate(30deg);
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+    transition: box-shadow 0.3s ease, transform 1s ease; /* Smooth transition for the effects */
+}
+
+.color-flag.active {
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.75), /* Embossed effect */
+        inset -2px -2px 5px rgba(0, 0, 0, 0.75); /* Embossed effect */
+}
+
+
+.color-flag.red {
+    background-color: #FF6347; /* Tomato */
+}
+
+.color-flag.green {
+    background-color: #32CD32; /* Lime Green */
+}
+
+.color-flag.blue {
+    background-color: cyan; /* Dodger Blue */
+}
+
 .terminal-body {
     overflow-y: auto; /* Make the terminal body scrollable */
     overflow-x: hidden;
     padding: 20px;
-    color: cyan;
-    text-shadow: 0 0 10px cyan;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--glow-color);
     flex-grow: 1; /* Allow the terminal body to grow and take available space */
     position: relative;
 }
@@ -144,13 +199,13 @@ pre {
     align-items: center;
     justify-content: center;
     height: 64px;
-    background-color: #1e1e1e;
+    background-color: var(--secondary-color);
     margin-top: -20px;
     margin-left: -20px; /* Offset the left padding */
     margin-right: -20px; /* Offset the right padding */
     margin-bottom: 20px;
-    border-bottom: cyan 2px solid;
-    box-shadow: 0 0 10px cyan; /* Add blue glowing effect */
+    border-bottom: var(--primary-color) 2px solid;
+    box-shadow: 0 0 10px var(--glow-color); /* Add blue glowing effect */
 }
 
 .terminal-body footer {
@@ -162,8 +217,8 @@ pre {
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 3rem;
-    border-top: cyan 2px solid;
-    box-shadow: 0 0 10px cyan; /* Add blue glowing effect */
+    border-top: var(--primary-color) 2px solid;
+    box-shadow: 0 0 10px var(--glow-color); /* Add blue glowing effect */
 }
 
 .terminal-body section::before {
@@ -211,21 +266,34 @@ nav ul li a {
     justify-content: center;
     height: 100%;
     width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    background-color: cyan;
+    background-color: var(--primary-color);
     color: #1e1e1e;
 }
 
 nav ul li + li {
-    border-left: 2px solid cyan; /* Add vertical border between items */
+    border-left: 2px solid var(--primary-color); /* Add vertical border between items */
 }
 
+.grid {
+    display: grid;
+    max-width: 600px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); /* Adjust the minmax value as needed */
+    gap: 3rem;
+}
+
+.border-box {
+    border: 1px solid var(--primary-color);
+    padding: 1rem;
+}
 
 .quote-block {
-    border-left: 2px solid cyan; /* Adjust the color and width as needed */
+    border-left: 1px solid var(--primary-color); /* Adjust the color and width as needed */
     padding-left: 16px; /* Add some padding to create space between the line and the text */
 }
 
@@ -381,21 +449,21 @@ textarea{
     padding: 1rem;
     background-color: transparent;
     border-radius: 0;
-    color: cyan;
-    text-shadow: 0 0 10px cyan;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--glow-color);
     margin-bottom: 1rem;
-    border: 2px solid cyan;
+    border: 2px solid var(--primary-color);
     font-family: monospace;
 }
 
 button {
     width: initial;
     background-color: transparent;
-    border: 2px solid cyan;
+    border: 2px solid var(--primary-color);
     padding: 1rem 2rem;
     cursor: pointer;
     background-color: transparent;
-    color: cyan;
+    color: var(--primary-color);
     transition: background-color 650ms;
     animation: pulse 2s infinite;
 }

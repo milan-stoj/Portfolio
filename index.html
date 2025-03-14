@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, initial-scale=1, user-scalable=no">
-    <title>Document</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-</head>
-<body>
-    <div class="terminal" >
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <span class="terminal-button red" ></span>
-                <span class="terminal-button yellow"></span>
-                <span class="terminal-button green"></span>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, initial-scale=1, user-scalable=no" />
+    <title>Milan Codes</title>
+    <meta name="description" content="Milan Stojanovic's portfolio showcasing skills and experience in software engineering, quality engineering, and mechanical engineering.">
+    <meta name="keywords" content="Milan Stojanovic, portfolio, software engineer, quality engineer, mechanical engineer, full-stack development, Java, React, AWS, manufacturing, process improvement">
+    <meta name="author" content="Milan Stojanovic">
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="terminal">
+      <div class="terminal-header flex flex-align-center flex-justify-between">
+        <div class="terminal-buttons">
+          <span class="terminal-button red"></span>
+          <span class="terminal-button yellow"></span>
+          <span class="terminal-button green"></span>
         </div>
-        <div class="terminal-body">
-            <pre id="stdout"></pre>
+        <div class="theme-selector">
+          <div class="color-flag-container">
+            <span class="color-flag blue active"></span>
+          </div>
+          <div class="color-flag-container">
+            <span class="color-flag red"></span>
+          </div>
+          <div class="color-flag-container">
+            <span class="color-flag green"></span>
+          </div>
         </div>
+      </div>
+      <div class="terminal-body">
+        <pre id="stdout"></pre>
+      </div>
     </div>
     <script type="module" src="./index.js"></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-</body>
+  </body>
 </html>
